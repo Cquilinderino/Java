@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class UserInterface extends ToDoList{
+public class UserInterface{
     private ToDoList list;
     private Scanner scanner;
 
@@ -9,6 +9,13 @@ public class UserInterface extends ToDoList{
     }
 
     public void start() {
+        System.out.println("***Commands***");
+        System.out.println("add: adds a book to the list");
+        System.out.println("remove: removes an entry from the list");
+        System.out.println("list: prints out all the books in the list");
+
+        System.out.println();
+
         while (true) {
             System.out.print("Command: ");
             String command = scanner.nextLine();
@@ -24,19 +31,19 @@ public class UserInterface extends ToDoList{
         if (command.equals("add")) {
             System.out.print("To add: ");
             String item = scanner.nextLine();
-            super.add(item);
+            list.add(item);
         } else if (command.equals("remove")) {
             System.out.print("To remove (id number): ");
 
             try {
                 int item = scanner.nextInt();
-                super.remove(item);
+                list.remove(item);
             } catch (Exception e) {
                 System.out.println("Invalid input");
             }
 
         } else if (command.equals("list")) {
-            super.print();
+            list.print();
         }
     }
 }
