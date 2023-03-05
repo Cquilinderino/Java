@@ -6,21 +6,23 @@ public class Abbreviations {
     }
 
     public void addAbbreviation(String abbreviation, String explanation) {
-
+        if (!hasAbbreviation(abbreviation)) {
+            this.abbreviation.put(abbreviation, explanation);
+        } else {
+            System.out.println("Abbreviation exists");
+        }
     }
 
     public boolean hasAbbreviation(String abbreviation) {
         if (this.abbreviation.containsKey(abbreviation)) {
-            System.out.println("Abbreviation exists");
             return true;
         }
 
-        System.out.println("Abbreviation does not exist");
         return false;
     }
 
-    public String findExplanation(String abbreviation) {
-
+    public String findExplanationFor(String abbreviation) {
+        return this.abbreviation.get(abbreviation);
     }
 
 }
